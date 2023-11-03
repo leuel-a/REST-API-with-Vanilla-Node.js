@@ -4,12 +4,16 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "supervisor server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "nodemon": "^3.0.1"
+    "supervisor": "^0.12.0"
+  },
+  "dependencies": {
+    "uuid": "^9.0.1"
   }
 }
