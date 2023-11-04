@@ -7,10 +7,17 @@ const {
   deleteProduct,
 } = require('./controllers/productController');
 
+/**
+ * Creates an HTTP server and listens on a specified port.
+ * The server handles API routes for CRUD operations on products.
+ */
 const server = http.createServer((req, res) => {
+  // Handles the GET request to retrieve all products.
   if (req.url === '/api/products' && req.method === 'GET') {
     getProducts(req, res);
-  } else if (
+  }
+  // Handles the GET request to retrieve a single product by its ID.
+  else if (
     req.url.match(
       /^\/api\/products\/(([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})|(\d+))/
     ) &&
@@ -18,9 +25,13 @@ const server = http.createServer((req, res) => {
   ) {
     const id = req.url.split('/')[3];
     getProduct(req, res, id);
-  } else if (req.url === '/api/products' && req.method === 'POST') {
+  }
+  // Handles the POST request to create a new product.
+  else if (req.url === '/api/products' && req.method === 'POST') {
     createProduct(req, res);
-  } else if (
+  }
+  // Handles the PUT request to update an existing product by its ID.
+  else if (
     req.url.match(
       /^\/api\/products\/(([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})|(\d+))/
     ) &&
@@ -28,7 +39,9 @@ const server = http.createServer((req, res) => {
   ) {
     const id = req.url.split('/')[3];
     updateProduct(req, res, id);
-  } else if (
+  }
+  // Handles the DELETE request to remove a product by its ID.
+  else if (
     req.url.match(
       /^\/api\/products\/(([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})|(\d+))/
     ) &&
@@ -36,7 +49,9 @@ const server = http.createServer((req, res) => {
   ) {
     const id = req.url.split('/')[3];
     deleteProduct(req, res, id);
-  } else {
+  }
+  // Handles any undefined routes and sends a 404 response.
+  else {
     res.writeHead(404, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({ message: 'Route not found' }));
   }
@@ -44,4 +59,5 @@ const server = http.createServer((req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
+// Starts the server and logs the port it is running on.
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
