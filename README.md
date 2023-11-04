@@ -27,11 +27,11 @@ To get a local copy up and running, follow these simple steps:
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/your-repo-name.git
+   git clone https://github.com/leuel-a/REST-API-with-Vanilla-Node.js
    ```
 2. Navigate to the repository directory:
    ```bash
-   cd your-repo-name
+   cd REST-API-with-Vanilla-Node.js
    ```
 3. Install NPM packages:
    ```bash
