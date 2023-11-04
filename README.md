@@ -26,22 +26,22 @@ You'll need to have the following installed to run the application:
 To get a local copy up and running, follow these simple steps:
 
 1. Clone the repository:
-    ```bash
-    git clone https://github.com/your-username/your-repo-name.git
-    ```
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   ```
 2. Navigate to the repository directory:
-    ```bash
-    cd your-repo-name
-    ```
+   ```bash
+   cd your-repo-name
+   ```
 3. Install NPM packages:
-    ```bash
-    npm install
-    ```
+   ```bash
+   npm install
+   ```
 4. Start the server:
-    ```bash
-    npm start
-    ```
-    The server will be running at [http://localhost:5000](http://localhost:5000).
+   ```bash
+   npm start
+   ```
+   The server will be running at [http://localhost:5000](http://localhost:5000).
 
 ## Usage
 
@@ -57,16 +57,6 @@ Contributions are what make the open source community such an amazing place to l
 
 ## Authors
 
-- **[Leuel Asfaw](https://github.com/leuel-a)** - *Initial work*
+- **[Leuel Asfaw](https://github.com/leuel-a)** - _Initial work_
 
 See also the list of [contributors](https://github.com/your-username/your-repo-name/contributors) who participated in this project.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Acknowledgments
-
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
