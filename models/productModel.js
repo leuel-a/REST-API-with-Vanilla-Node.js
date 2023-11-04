@@ -1,14 +1,22 @@
 const products = require('../data/products.json');
 const { v4: uuidv4 } = require('uuid');
-
 const { writeDataToFile } = require('../utils');
 
+/**
+ * Find all products.
+ * @returns {Promise<Array>} The promise that resolves with the array of all products.
+ */
 function findAll() {
   return new Promise((resolve, reject) => {
     resolve(products);
   });
 }
 
+/**
+ * Find a product by its ID.
+ * @param {string} id - The unique identifier for the product.
+ * @returns {Promise<Object>} The promise that resolves with the product if found, otherwise undefined.
+ */
 function findById(id) {
   return new Promise((resolve, reject) => {
     const product = products.find((p) => p.id === id);
@@ -16,7 +24,11 @@ function findById(id) {
   });
 }
 
-// TODO : Use the async method to write to the file
+/**
+ * Create a new product.
+ * @param {Object} product - The product to create.
+ * @returns {Promise<Object>} The promise that resolves with the newly created product.
+ */
 function create(product) {
   return new Promise((resolve, reject) => {
     const newProduct = { id: uuidv4(), ...product };
@@ -26,6 +38,12 @@ function create(product) {
   });
 }
 
+/**
+ * Update an existing product.
+ * @param {string} id - The unique identifier for the product to update.
+ * @param {Object} product - The product data to update.
+ * @returns {Promise<Object>} The promise that resolves with the updated product.
+ */
 function update(id, product) {
   return new Promise((resolve, reject) => {
     const index = products.findIndex((p) => p.id === id);
@@ -35,10 +53,14 @@ function update(id, product) {
   });
 }
 
+/**
+ * Remove a product by its ID.
+ * @param {string} id - The unique identifier for the product to be removed.
+ * @returns {Promise<void>} The promise that resolves when the product is removed.
+ */
 function remove(id) {
   return new Promise((resolve, reject) => {
     const newProducts = products.filter((p) => p.id !== id);
-    newProducts.forEach((product) => console.log(product));
     writeDataToFile('./data/products.json', newProducts);
     resolve();
   });
